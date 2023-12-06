@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mostafa Mohamed">
+    <title>Simple claculator</title>
+    <meta name="description" content="description">
+
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+    <script>
+        function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+            audio.volume = 0.05;
+        }
+
+    </script>
+
+
+
+
+
+
+    <!-- simple calculator -->
+    <section class="home bg-body-tertiary">
+        <div class="bg" id="test">
+
+        </div>
+        <div class="calc-body rounded-3 shadow translate-middle position-absolute start-50 top-50">
+            <div class="container ps-4 pe-4 pt-4">
+                <div class="result-box mb-5">
+                    <input type="text" id="result" name="answer" class=" w-100 h-100 bg-body-secondary fw-bold fa-2x"
+                        value="">
+                </div>
+                <div class="buttons-box">
+                    <div class="layout pt-4">
+                        <button type="button" onclick="clr()" class="btn btn-light child child-clr">CLR</button>
+                        <button type="button" onclick="div()" class="btn btn-light child child-div">
+                            <i class="fa-solid fa-divide"></i>
+                        </button>
+                        <button type="button" onclick="mul()" class="btn btn-light child child-mul">
+                            <i class="fa-solid fa-multiply"></i>
+                        </button>
+                        <button type="button" onclick="point()" class="btn btn-light child child-point">.</button>
+                        <button type="button" onclick="add7()" class="btn btn-light child child7">7</button>
+                        <button type="button" onclick="add8()" class="btn btn-light child child8">8</button>
+                        <button type="button" onclick="add9()" class="btn btn-light child child9">9</button>
+                        <button type="button" onclick="minus()" class="btn btn-light child child-min">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <button type="button" onclick="add4()" class="btn btn-light child child4">4</button>
+                        <button type="button" onclick="add5()" class="btn btn-light child child5">5</button>
+                        <button type="button" onclick="add6()" class="btn btn-light child child6">6</button>
+                        <button type="button" onclick="add1()" class="btn btn-light child child1">1</button>
+                        <button type="button" onclick="add2()" class="btn btn-light child child2">2</button>
+                        <button type="button" onclick="add3()" class="btn btn-light child child3">3</button>
+                        <button type="button" onclick="plus()" class="btn btn-light child child-plus">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button type="button" onclick="add0()" class="btn btn-light child child0">0</button>
+                        <button type="button" id="eqq" onclick="equal(),play()" class="btn btn-light child child-equal">
+                            <i class="fa-solid fa-equals"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <audio id="audio" src="y.mp3"></audio>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        var x;
+        var y;
+        var operator;
+        var result;
+        function add0() {
+            document.getElementById("result").value += "0";
+        }
+        function add1() {
+            document.getElementById("result").value += "1";
+        }
+        function add2() {
+            document.getElementById("result").value += "2";
+        }
+        function add3() {
+            document.getElementById("result").value += "3";
+        }
+        function add4() {
+            document.getElementById("result").value += "4";
+        }
+        function add5() {
+            document.getElementById("result").value += "5";
+        }
+        function add6() {
+            document.getElementById("result").value += "6";
+        }
+        function add7() {
+            document.getElementById("result").value += "7";
+        }
+        function add8() {
+            document.getElementById("result").value += "8";
+        }
+        function add9() {
+            document.getElementById("result").value += "9";
+        }
+        function clr() {
+            document.getElementById("result").value = "";
+        }
+        function plus() {
+            x = Number(document.getElementById("result").value);
+            operator = '+';
+            document.getElementById("result").value += "+";
+        }
+        function minus() {
+            x = document.getElementById("result").value;
+            operator = '-';
+            document.getElementById("result").value += "-";
+        }
+        function mul() {
+            x = document.getElementById("result").value;
+            operator = '*';
+            document.getElementById("result").value += "*";
+        }
+        function div() {
+            x = document.getElementById("result").value;
+            operator = '/';
+            document.getElementById("result").value += "/";
+        }
+        function point() {
+            x = document.getElementById("result").value;
+            operator = '.';
+            document.getElementById("result").value += ".";
+        }
+        var first_click = true;
+        var second_click = true;
+        var fourth_click = true;
+        var fifth_click = true;
+        var seventh_click = true;
+        var eighth_click = true;
+        var ninth_click = true;
+        var tenth_click = true;
+        function equal() {
+            // document.getElementById("result").value = eval(document.getElementById("result").value);
+            document.getElementById("test").setAttribute("style", "opacity:1; left: 0px;");
+            
+            if (first_click) {
+                document.getElementById("result").value = "Dont know";
+                first_click = false;
+            } 
+            else if(second_click){
+                document.getElementById("result").value = "Still dont know";
+                second_click = false;
+            }
+            
+            else if(fourth_click){
+                document.getElementById("result").value = "Can't even count";
+                fourth_click = false;
+            }
+            else if(fifth_click){
+                document.getElementById("result").value = "21 ?";
+                fifth_click = false;
+            }
+            else if(seventh_click){
+                document.getElementById("result").value = "Enough";
+                seventh_click = false;
+            }
+            else if(eighth_click){
+                document.getElementById("result").value = "Last chance";
+                eighth_click = false;
+            }
+            else if(ninth_click){
+                document.getElementById("result").value = "No equal?";
+                document.getElementById("eqq").hidden = true;
+                document.getElementById("test").style.backgroundImage = "url(kfaya.jpg)";
+                
+
+                ninth_click = false;
+            }
+            else{
+                document.getElementById("result").value = "Nigger";
+                //  IF YOU ARE READING THIS MR SA3EED, TAKE THIS ----> (https://cdn.discordapp.com/attachments/467290323664633858/1175842126823694436/received_1263369541018127.png?ex=657f2851&is=656cb351&hm=65b6f1c683d44a9a6e1ea35fd1f101bd6375c942ab5f1b38f1130c3692a32591&)
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
